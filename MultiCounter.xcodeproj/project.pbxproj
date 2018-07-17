@@ -13,6 +13,7 @@
 		93295C8220FD7C58007DDDA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93295C8020FD7C58007DDDA8 /* Main.storyboard */; };
 		93295C8E20FD7C59007DDDA8 /* MultiCounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93295C8D20FD7C59007DDDA8 /* MultiCounterTests.swift */; };
 		93295C9920FD7C59007DDDA8 /* MultiCounterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93295C9820FD7C59007DDDA8 /* MultiCounterUITests.swift */; };
+		93AA0FD120FDAAB6009A6042 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA0FD020FDAAB6009A6042 /* WindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		93295C9420FD7C59007DDDA8 /* MultiCounterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiCounterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93295C9820FD7C59007DDDA8 /* MultiCounterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiCounterUITests.swift; sourceTree = "<group>"; };
 		93295C9A20FD7C59007DDDA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93AA0FD020FDAAB6009A6042 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				93295C8020FD7C58007DDDA8 /* Main.storyboard */,
 				93295C8320FD7C58007DDDA8 /* Info.plist */,
 				93295C8420FD7C58007DDDA8 /* MultiCounter.entitlements */,
+				93AA0FD020FDAAB6009A6042 /* WindowController.swift */,
 			);
 			path = MultiCounter;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93295C7D20FD7C57007DDDA8 /* ViewController.swift in Sources */,
+				93AA0FD120FDAAB6009A6042 /* WindowController.swift in Sources */,
 				93295C7B20FD7C57007DDDA8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

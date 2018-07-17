@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Package-Title: MultiCounter
+Package-Version: 1.1
+Package-Vendor: Aaron Kollasch
+Class-Path: .
+Main-Class: main.MainWindow
