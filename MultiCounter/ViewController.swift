@@ -84,7 +84,7 @@ class ViewController: NSViewController {
                 newList.append(3)
             case "a", ";":
                 newList.append(4)
-            case " ", "\n":
+            case " ", "\t", "\n":
                 break loopOverString
             case "x":
                 break loopOverString
@@ -120,7 +120,7 @@ class ViewController: NSViewController {
             case "a", ";":
                 addInt += 4
                 addLast = true
-            case " ":
+            case " ", "\t":
                 newList.append(addInt)
                 addInt = 0
                 addLast = false
