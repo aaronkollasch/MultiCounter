@@ -8,12 +8,6 @@
 
 import Cocoa
 
-protocol Initiable {
-    init()
-}
-
-extension Int:Initiable{}
-
 class PlaceholderTextView: NSTextView {
     @objc var placeholderAttributedString: NSAttributedString? = NSAttributedString(
         string: "Enter commands here…",
@@ -35,15 +29,13 @@ class ViewController: NSViewController {
         self.setUpSampleData()
         
         for v: NSView in getRecursiveSubviews(view: self.view) {
-            //print(v)
-            //print(v.identifier)
             switch v.identifier?.rawValue {
             case "InputBox":
-                myTextView = v as! NSTextView
+                myTextView = v as? NSTextView
             case "EntryTable":
-                myEntryTable = v as! NSTableView
+                myEntryTable = v as? NSTableView
             case "OutputTable":
-                myOutputTable = v as! NSTableView
+                myOutputTable = v as? NSTableView
             default:
                 break
             }
@@ -60,8 +52,16 @@ class ViewController: NSViewController {
 
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
+            // Update the view, if already loaded.
         }
+    }
+    
+    func getRecursiveSubviews(view: NSView) -> [NSView] {
+        var views: [NSView] = [view]
+        for view: NSView in view.subviews {
+            views += getRecursiveSubviews(view: view)
+        }
+        return views
     }
 
     func setUpSampleData() {
@@ -70,33 +70,50 @@ class ViewController: NSViewController {
         countList = getCountListFromString(countString: entryText)
     }
     
-    func getAddListFromString(countString: String) -> [Int]{
+    /**
+     Gets the most recent column of additions from a string of commands
+     
+     - Parameter countString: the string of commands
+     
+     - Returns: An Int array containing the column of additions (recent first)
+     */
+    func getAddListFromString(countString: String) -> [Int] {
         var newList: [Int] = []
         loopOverString: for c in countString.lowercased().reversed() {
             switch c {
-            case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
-                newList.append(Int(String(c))!)
-            case "f", "j":
-                newList.append(1)
-            case "d", "k":
-                newList.append(2)
-            case "s", "l":
-                newList.append(3)
-            case "a", ";":
-                newList.append(4)
-            case " ", "\t", "\n":
-                break loopOverString
-            case "x":
-                break loopOverString
-            case "c":
-                break loopOverString
-            default: break
+                case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
+                    newList.append(Int(String(c))!)
+                case "f", "j":
+                    newList.append(1)
+                case "d", "k":
+                    newList.append(2)
+                case "s", "l":
+                    newList.append(3)
+                case "a", ";":
+                    newList.append(4)
+                case " ", "\t", "\n":
+                    break loopOverString
+                case "x":
+                    break loopOverString
+                case "c":
+                    break loopOverString
+                default:
+                    break
             }
         }
         return newList
     }
     
-    func getCountListFromString(countString: String) -> [[Int]]{
+    /**
+     Parses a string of commands to obtain all columns of additions
+     
+     If 'c' is present at the end of countString, copies the count list generated up to that point.
+     
+     - Parameter countString: the string of commands
+     
+     - Returns: [[Int]] containing the columns of additions (oldest first)
+     */
+    func getCountListFromString(countString: String) -> [[Int]] {
         var newLists: [[Int]] = []
         var newList: [Int] = []
         var addInt = 0
@@ -105,44 +122,44 @@ class ViewController: NSViewController {
         for c in countString.lowercased() {
             addLastColumn = true
             switch c {
-            case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
-                addInt += Int(String(c))!
-                addLast = true
-            case "f", "j":
-                addInt += 1
-                addLast = true
-            case "d", "k":
-                addInt += 2
-                addLast = true
-            case "s", "l":
-                addInt += 3
-                addLast = true
-            case "a", ";":
-                addInt += 4
-                addLast = true
-            case " ", "\t":
-                newList.append(addInt)
-                addInt = 0
-                addLast = false
-            case "\n":
-                if (addLast) { newList.append(addInt) }
-                addInt = 0
-                newLists.append(newList)
-                newList = []
-                addLast = false
-                addLastColumn = true
-            case "x":
-                addInt = 0
-                addLast = false
-            case "c":
-                if (addLast) { newList.append(addInt) }
-                addInt = 0
-                newLists.append(newList)
-                newList = []
-                addLast = false
-                addLastColumn = false
-            default:
-                break
+                case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
+                    addInt += Int(String(c))!
+                    addLast = true
+                case "f", "j":
+                    addInt += 1
+                    addLast = true
+                case "d", "k":
+                    addInt += 2
+                    addLast = true
+                case "s", "l":
+                    addInt += 3
+                    addLast = true
+                case "a", ";":
+                    addInt += 4
+                    addLast = true
+                case " ", "\t":
+                    newList.append(addInt)
+                    addInt = 0
+                    addLast = false
+                case "\n":
+                    if (addLast) { newList.append(addInt) }
+                    addInt = 0
+                    newLists.append(newList)
+                    newList = []
+                    addLast = false
+                    addLastColumn = true
+                case "x":
+                    addInt = 0
+                    addLast = false
+                case "c":
+                    if (addLast) { newList.append(addInt) }
+                    addInt = 0
+                    newLists.append(newList)
+                    newList = []
+                    addLast = false
+                    addLastColumn = false
+                default:
+                    break
             }
         }
         if addLast {
@@ -151,14 +168,12 @@ class ViewController: NSViewController {
         if addLastColumn {
             newLists.append(newList)
         }
-        
         if (countString.last == "c") {
             copyTableToClipboard(copyTable: newLists)
         }
-        
-        return newLists //.reverse() // don't want to output reversed column order, so return the oldest column first
+        return newLists
     }
-    
+
     func copyTableToClipboard(copyTable: [[Int]]) {
         let pasteBoard = NSPasteboard.general
         pasteBoard.clearContents()
@@ -176,7 +191,7 @@ class ViewController: NSViewController {
         pasteBoard.writeObjects([NSString(string: pasteString)])
     }
     
-    func transposeRowsAndColumns<T:Initiable>(arr: [[T]]) -> [[String]]
+    func transposeRowsAndColumns<T>(arr: [[T]]) -> [[String]]
     {
         let rowCount = arr.count;
         let columnCount = longestListLength(array2D: arr);
@@ -191,16 +206,7 @@ class ViewController: NSViewController {
                 }
             }
         }
-
         return transposed;
-    }
-    
-    func getRecursiveSubviews(view: NSView) -> [NSView] {
-        var views: [NSView] = [view]
-        for view: NSView in view.subviews {
-            views += getRecursiveSubviews(view: view)
-        }
-        return views
     }
     
     func refreshTables() {
@@ -224,9 +230,7 @@ class ViewController: NSViewController {
                 let ident = "Column_\(columnNumber)"
                 let newColumn: NSTableColumn = NSTableColumn.init(identifier: NSUserInterfaceItemIdentifier(rawValue: ident))
                 newColumn.width = 70
-//                myOutputTable.register(NSNib(nibNamed: self.nibName!, bundle: self.nibBundle), forIdentifier: NSUserInterfaceItemIdentifier(rawValue: ident))
                 myOutputTable.addTableColumn(newColumn)
-                
                 updateOutputTableColumns()
             }
         }
@@ -264,7 +268,6 @@ extension ViewController: NSTextViewDelegate {
 
 // MARK: - NSTableViewDataSource
 extension ViewController: NSTableViewDataSource {
-    
     func numberOfRows(in tableView: NSTableView) -> Int {
         if tableView.identifier?.rawValue == "OutputTable" {
             return longestListLength(array2D: countList)

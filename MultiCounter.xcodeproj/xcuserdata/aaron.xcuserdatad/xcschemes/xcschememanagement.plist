@@ -4,10 +4,33 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>MultiCounter.xcscheme</key>
+		<key>MultiCounter-release.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>MultiCounter.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>93295C7620FD7C57007DDDA8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>93295C8820FD7C59007DDDA8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>93295C9320FD7C59007DDDA8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
