@@ -11,7 +11,7 @@ import Cocoa
 class PlaceholderTextView: NSTextView {
     @objc var placeholderAttributedString: NSAttributedString? = NSAttributedString(
         string: "Enter commands here…",
-        attributes: [NSAttributedStringKey.foregroundColor: NSColor.lightGray]
+        attributes: [NSAttributedString.Key.foregroundColor: NSColor.lightGray]
     )
 }
 
