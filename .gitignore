@@ -1,4 +1,6 @@
 .DS_Store
 
+project.xcworkspace
+xcuserdata
 build
 MultiCounter-java/dist
