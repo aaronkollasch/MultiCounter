@@ -48,6 +48,7 @@ class ViewController: NSViewController {
         if myOutputTable != nil {
             //myOutputTable.userActivity = nil
         }
+        myEntryTable.tableColumn(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "AddColumn"))?.tableView?.sizeToFit()
     }
 
     override var representedObject: Any? {
