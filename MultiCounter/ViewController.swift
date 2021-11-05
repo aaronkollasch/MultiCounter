@@ -286,7 +286,7 @@ extension ViewController: NSTableViewDataSource {
             }
         }
         else if tcIdentifier.contains("Column_") {
-            let columnNumberString: String = String(tcIdentifier[tcIdentifier.index(tcIdentifier.index(of: "_")!, offsetBy: 1)...])
+            let columnNumberString: String = String(tcIdentifier[tcIdentifier.index(tcIdentifier.firstIndex(of: "_")!, offsetBy: 1)...])
             let columnNumber = Int(columnNumberString)!
             let columnIndex = tableView.numberOfColumns - columnNumber
             if columnIndex < self.countList.count && row < self.countList[columnIndex].count {

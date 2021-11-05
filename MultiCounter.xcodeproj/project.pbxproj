@@ -195,16 +195,16 @@
 				TargetAttributes = {
 					93295C7620FD7C57007DDDA8 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1310;
 					};
 					93295C8820FD7C59007DDDA8 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1310;
 						TestTargetID = 93295C7620FD7C57007DDDA8;
 					};
 					93295C9320FD7C59007DDDA8 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1310;
 						TestTargetID = 93295C7620FD7C57007DDDA8;
 					};
 				};
@@ -442,7 +442,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.awk.MultiCounter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -464,7 +464,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.awk.MultiCounter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -486,7 +486,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.awk.MultiCounterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MultiCounter.app/Contents/MacOS/MultiCounter";
 			};
 			name = Debug;
@@ -509,7 +509,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.awk.MultiCounterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MultiCounter.app/Contents/MacOS/MultiCounter";
 			};
 			name = Release;
@@ -531,7 +531,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.awk.MultiCounterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = MultiCounter;
 			};
 			name = Debug;
@@ -553,7 +553,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.awk.MultiCounterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = MultiCounter;
 			};
 			name = Release;
